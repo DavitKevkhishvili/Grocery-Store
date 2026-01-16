@@ -1,7 +1,13 @@
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+
 function App() {
   return (
     <>
-      <div className="w-20 h-20 bg-blue-900"></div>
+      <div className="min-h-screen">
+        <Header />
+        <Footer />
+      </div>
     </>
   );
 }
