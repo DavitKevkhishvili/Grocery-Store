@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Registration: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full min-h-screen px-6 py-12 lg:flex lg:justify-center">
@@ -68,7 +72,9 @@ const Registration: React.FC = () => {
 
             <h4 className="text-[#4B5563] text-[13px] font-normal text-center">
               Already have an account?{" "}
-              <button className="text-green">Sign in</button>
+              <button onClick={() => navigate("/login")} className="text-green">
+                Sign in
+              </button>
             </h4>
           </div>
         </div>

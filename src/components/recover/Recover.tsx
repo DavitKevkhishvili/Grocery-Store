@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Recover: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full min-h-screen px-6 py-12 lg:flex lg:justify-center">
@@ -27,7 +31,10 @@ const Recover: React.FC = () => {
             Send recover link
           </button>
 
-          <button className="text-[13px] font-normal text-green">
+          <button
+            onClick={() => navigate("/login")}
+            className="text-[13px] font-normal text-green"
+          >
             Back to log in
           </button>
         </div>

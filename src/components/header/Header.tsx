@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full h-16 bg-white flex justify-between items-center p-4">
@@ -12,7 +16,10 @@ const Header: React.FC = () => {
             <img src="cart.svg" alt="cart icon" />
           </button>
 
-          <button className="cursor-pointer">
+          <button
+            onClick={() => navigate("/profile")}
+            className="cursor-pointer"
+          >
             <img className="w-6 h-6" src="person-header.svg" alt="human icon" />
           </button>
 

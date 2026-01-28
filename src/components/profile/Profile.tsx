@@ -1,6 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Profile: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full min-h-screen px-6 py-12 lg:flex lg:justify-center">
@@ -15,7 +17,10 @@ const Profile: React.FC = () => {
           </h3>
 
           <div className="w-full flex flex-col ">
-            <button className="w-full h-12 flex items-center gap-3 rounded-lg px-2 hover:bg-[#F0FDF4]">
+            <button
+              onClick={() => navigate("/personal-info")}
+              className="w-full h-12 flex items-center gap-3 rounded-lg px-2 hover:bg-[#F0FDF4]"
+            >
               <img
                 className="w-5 h-5"
                 src="person-bold.svg"
@@ -38,7 +43,10 @@ const Profile: React.FC = () => {
               <h4 className="text-[14px] text-grey font-normal">Settings</h4>
             </button>
 
-            <button className="w-full h-12 flex items-center gap-3 rounded-lg px-2 hover:bg-[#F0FDF4]">
+            <button
+              onClick={() => navigate("/login")}
+              className="w-full h-12 flex items-center gap-3 rounded-lg px-2 hover:bg-[#F0FDF4]"
+            >
               <img className="w-5 h-5" src="logout.svg" alt="logout icon" />
               <h4 className="text-[14px] text-red font-normal">Logout</h4>
             </button>

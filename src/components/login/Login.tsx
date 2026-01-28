@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Login: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full min-h-screen px-6 py-12 lg:flex lg:justify-center">
@@ -36,7 +40,10 @@ const Login: React.FC = () => {
                   Remember me
                 </h4>
               </div>
-              <button className="text-[13px] font-normal text-green">
+              <button
+                onClick={() => navigate("/recover")}
+                className="text-[13px] font-normal text-green"
+              >
                 Forgot password?
               </button>
             </div>
@@ -47,7 +54,12 @@ const Login: React.FC = () => {
 
             <h4 className="text-[#4B5563] text-[13px] font-normal text-center">
               Don't have an account?{" "}
-              <button className="text-green">Sign up</button>
+              <button
+                onClick={() => navigate("/registration")}
+                className="text-green"
+              >
+                Sign up
+              </button>
             </h4>
           </div>
         </div>
