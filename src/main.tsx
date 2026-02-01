@@ -49,6 +49,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <MainContextProvider>
-    <RouterProvider router={router} />,
+    <RouterProvider router={router} />
   </MainContextProvider>,
 );

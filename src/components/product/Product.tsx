@@ -1,7 +1,7 @@
 const Product: React.FC = () => {
   return (
     <>
-      <div className="w-81 h-81 bg-white rounded-lg p-6">
+      <div className="w-81 h-81 bg-white rounded-lg p-6 [box-shadow:0_4px_20px_rgba(0,0,0,0.1)]">
         <img
           className="w-full h-48 rounded-lg mb-4"
           src="apples.jpg"

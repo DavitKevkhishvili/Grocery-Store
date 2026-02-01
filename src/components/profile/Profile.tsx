@@ -6,7 +6,7 @@ const Profile: React.FC = () => {
   return (
     <>
       <div className="w-full min-h-screen px-6 py-12 lg:flex lg:justify-center">
-        <div className="w-full bg-white rounded-xl p-8 flex flex-col items-center lg:w-md lg:h-min">
+        <div className="w-full bg-white rounded-xl p-8 flex flex-col items-center lg:w-md lg:h-min [box-shadow:0_4px_20px_rgba(0,0,0,0.1)]">
           <div className="w-24 h-24 bg-light-green rounded-[48px] flex justify-center items-center mb-4">
             <img className="w-12 h-12" src="person.svg" alt="person icon" />
           </div>

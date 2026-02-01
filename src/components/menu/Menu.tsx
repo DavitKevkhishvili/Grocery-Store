@@ -13,7 +13,7 @@ const Menu: React.FC = () => {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className="w-70 h-screen bg-white p-6 flex justify-end"
+          className="w-70 h-screen bg-white p-6 flex justify-end [box-shadow:-4px_0_20px_rgba(0,0,0,0.1)]"
         >
           <button
             onClick={() => setToggleMenu(false)}
