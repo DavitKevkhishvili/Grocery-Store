@@ -4,4 +4,6 @@ import type { MainContextType } from "../types";
 export const MainContext = createContext<MainContextType>({
   toggleMenu: false,
   setToggleMenu: () => {},
+  showFilter: false,
+  setShowFilter: () => {},
 });

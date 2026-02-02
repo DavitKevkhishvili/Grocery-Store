@@ -5,6 +5,7 @@ const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
     if (toggleMenu) {
@@ -19,7 +20,9 @@ const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [toggleMenu]);
 
   return (
-    <MainContext.Provider value={{ toggleMenu, setToggleMenu }}>
+    <MainContext.Provider
+      value={{ toggleMenu, setToggleMenu, showFilter, setShowFilter }}
+    >
       {children}
     </MainContext.Provider>
   );
