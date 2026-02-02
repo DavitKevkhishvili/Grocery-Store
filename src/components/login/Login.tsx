@@ -42,13 +42,13 @@ const Login: React.FC = () => {
               </div>
               <button
                 onClick={() => navigate("/recover")}
-                className="text-[13px] font-normal text-green cursor-pointer"
+                className="text-[13px] font-normal text-green cursor-pointer hover:text-[#22c55e]"
               >
                 Forgot password?
               </button>
             </div>
 
-            <button className="w-full h-12 bg-green rounded-lg text-white text-[15px] font-normal mb-6 cursor-pointer">
+            <button className="w-full h-12 bg-green rounded-lg text-white text-[15px] font-normal mb-6 cursor-pointer hover:[box-shadow:0_0_15px_rgba(22,163,74,0.3)]">
               Sign in
             </button>
 
@@ -56,7 +56,7 @@ const Login: React.FC = () => {
               Don't have an account?{" "}
               <button
                 onClick={() => navigate("/registration")}
-                className="text-green cursor-pointer"
+                className="text-green cursor-pointer hover:text-[#22c55e]"
               >
                 Sign up
               </button>

@@ -7,4 +7,6 @@ type MenuProps = {
 type MainContextType = {
   toggleMenu: boolean;
   setToggleMenu: React.Dispatch<SetStateAction<boolean>>;
+  showFilter: boolean;
+  setShowFilter: React.Dispatch<SetStateAction<boolean>>;
 };

@@ -66,7 +66,7 @@ const Registration: React.FC = () => {
               />
             </div>
 
-            <button className="w-full h-12 bg-green rounded-lg text-white text-[15px] font-normal mb-6 cursor-pointer">
+            <button className="w-full h-12 bg-green rounded-lg text-white text-[15px] font-normal mb-6 cursor-pointer  hover:[box-shadow:0_0_15px_rgba(22,163,74,0.3)]">
               Create Account
             </button>
 
@@ -74,7 +74,7 @@ const Registration: React.FC = () => {
               Already have an account?{" "}
               <button
                 onClick={() => navigate("/login")}
-                className="text-green cursor-pointer"
+                className="text-green cursor-pointer hover:text-[#22c55e]"
               >
                 Sign in
               </button>

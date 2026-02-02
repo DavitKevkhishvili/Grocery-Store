@@ -17,10 +17,23 @@ const Menu: React.FC = () => {
         >
           <button
             onClick={() => setToggleMenu(false)}
-            className="w-5 h-5 flex items-center gap-1 justify-end cursor-pointer mb-6"
+            className="h-6 flex gap-1 justify-end items-center cursor-pointer mb-6 text-[16px] text-dark font-normal hover:text-green"
           >
-            <img className="w-5 h-5" src="close.svg" alt="close icon" />
-            <h6 className="text-dark text-[16px]">close</h6>
+            <svg
+              className="w-5 h-5 lg:w-7 lg:h-7"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            close
           </button>
         </div>
       </div>
