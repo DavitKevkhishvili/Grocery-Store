@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "BPG ExtraSquare";
-  src: url("public/fonts/BPG-ExtraSquare.ttf") format("truetype");
+  src: url("fonts/BPG-ExtraSquare.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
