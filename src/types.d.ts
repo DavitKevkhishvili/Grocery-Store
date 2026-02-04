@@ -9,4 +9,6 @@ type MainContextType = {
   setToggleMenu: React.Dispatch<SetStateAction<boolean>>;
   showFilter: boolean;
   setShowFilter: React.Dispatch<SetStateAction<boolean>>;
+  showCart: boolean;
+  setShowCart: React.Dispatch<SetStateAction<boolean>>;
 };

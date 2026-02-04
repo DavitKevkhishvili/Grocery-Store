@@ -6,4 +6,6 @@ export const MainContext = createContext<MainContextType>({
   setToggleMenu: () => {},
   showFilter: false,
   setShowFilter: () => {},
+  showCart: false,
+  setShowCart: () => {},
 });
