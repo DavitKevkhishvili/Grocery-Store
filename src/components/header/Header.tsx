@@ -3,15 +3,17 @@ import Menu from "../menu/Menu";
 import { useContext } from "react";
 import type { MainContextType } from "../../types";
 import { MainContext } from "../../contexts/MainContext";
+import Cart from "../cart/Cart";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const { toggleMenu, setToggleMenu } =
     useContext<MainContextType>(MainContext);
+  const { showCart, setShowCart } = useContext<MainContextType>(MainContext);
 
   return (
     <>
-      <div>
+      <div className="relative">
         <div className="w-full h-14 bg-white flex justify-between items-center lg:h-27">
           <div className="w-14 h-full flex justify-center items-center gap-2 lg:w-29 ">
             <button
@@ -26,7 +28,7 @@ const Header: React.FC = () => {
             </button>
           </div>
 
-          <div className="h-full flex flex-1 flex-col justify-center items-center bg-[#56bf41]">
+          {/* <div className="h-full flex flex-1 flex-col justify-center items-center bg-[#56bf41]">
             <div className="flex gap-8 justify-center">
               <img
                 className="hidden lg:flex w-25 h-25"
@@ -60,10 +62,16 @@ const Header: React.FC = () => {
                 alt=""
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="flex gap-2 px-2 lg:gap-6 lg:p-8">
-            <button className="cursor-pointer hover:text-green">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowCart(!showCart);
+              }}
+              className="cursor-pointer hover:text-green"
+            >
               <svg
                 className="w-5 h-5 lg:w-7 lg:h-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +138,7 @@ const Header: React.FC = () => {
               className="cursor-pointer hover:text-green"
             >
               <svg
+                className="w-5 h-5 lg:w-7 lg:h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -159,10 +168,11 @@ const Header: React.FC = () => {
                 />
               </svg>
             </button>
+            {showCart && <Cart />}
           </div>
         </div>
 
-        {toggleMenu ? <Menu /> : ""}
+        {toggleMenu && <Menu />}
       </div>
     </>
   );
