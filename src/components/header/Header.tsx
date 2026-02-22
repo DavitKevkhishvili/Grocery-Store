@@ -7,9 +7,8 @@ import Cart from "../cart/Cart";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const { toggleMenu, setToggleMenu } =
+  const { toggleMenu, setToggleMenu, showCart, setShowCart } =
     useContext<MainContextType>(MainContext);
-  const { showCart, setShowCart } = useContext<MainContextType>(MainContext);
 
   return (
     <>
