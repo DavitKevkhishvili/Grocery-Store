@@ -1,30 +1,64 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import type { MainContextType } from "../../types";
 import { MainContext } from "../../contexts/MainContext";
+import { categories } from "../../data/categories";
+import { products } from "../../data/productsData";
 
 const Filter: React.FC = () => {
-  const { showFilter, setShowFilter } =
-    useContext<MainContextType>(MainContext);
+  const {
+    showFilter,
+    setShowFilter,
+    setCategory,
+    category,
+    setFilteredProducts,
+    searchedProduct,
+    setSearchedProduct,
+  } = useContext<MainContextType>(MainContext);
 
-  const categories = [
-    "ყველა პროდუქტი",
-    "ხილი",
-    "ბოსტნეული",
-    "რძის ნაწარმი",
-    "თხილეული",
-    "საწებელი",
-  ];
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, []);
+
+  const filter = (cat: string, search?: string) => {
+    let filtered = products;
+
+    if (cat !== "ყველა პროდუქტი") {
+      filtered = filtered.filter((p) => p.category === cat);
+    }
+
+    if (search) {
+      filtered = products.filter(
+        (p) =>
+          p.name.toLowerCase() === search.toLowerCase() ||
+          p.id.toLowerCase() === search.toLowerCase(),
+      );
+      setSearchedProduct("");
+    }
+
+    setFilteredProducts(filtered);
+  };
+
   return (
     <>
       <div className="w-full flex justify-center">
         <div className="w-full max-w-160 h-24 bg-white rounded-lg [box-shadow:0_4px_20px_rgba(0,0,0,0.1)] p-6 flex items-center gap-4 relative">
           <div className="relative flex-1">
             <input
+              value={searchedProduct}
+              onChange={(e) => setSearchedProduct(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  filter(category, searchedProduct);
+                }
+              }}
               className="w-full  h-12 border border-[#D1D5DB] text-black text-[16px] rounded-lg px-4 py-3 placeholder:opacity-50"
               type="text"
               placeholder="ძებნა"
             />
-            <button className="cursor-pointer text-[#B2B2B2] hover:text-green">
+            <button
+              onClick={() => filter(category, searchedProduct)}
+              className="cursor-pointer text-[#B2B2B2] hover:text-green"
+            >
               <svg
                 className="w-6 h-6 absolute top-3 right-4 "
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +117,11 @@ const Filter: React.FC = () => {
             >
               {categories.map((cat) => (
                 <button
+                  onClick={() => {
+                    setCategory(cat);
+                    setShowFilter(false);
+                    filter(cat, searchedProduct);
+                  }}
                   key={cat}
                   className="w-full h-12 px-6 flex justify-start items-center cursor-pointer text-[16px] text-dark font-normal hover:text-green "
                 >
