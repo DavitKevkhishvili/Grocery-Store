@@ -13,6 +13,12 @@ type MainContextType = {
   setShowCart: React.Dispatch<SetStateAction<boolean>>;
   cartContent: ProductType[];
   setCartContent: React.Dispatch<SetStateAction<CartItem[]>>;
+  category: string;
+  setCategory: React.Dispatch<SetStateAction<string>>;
+  filteredProducts: ProductType[];
+  setFilteredProducts: React.Dispatch<SetStateAction<ProductType[]>>;
+  searchedProduct: string;
+  setSearchedProduct: React.Dispatch<SetStateAction<string>>;
 };
 
 interface ProductType {
@@ -21,7 +27,9 @@ interface ProductType {
   name: string;
   price: number;
   unit: "კგ" | "გ" | "ლ" | "მლ" | "ც" | "მგ";
+  category: string;
   defaultAmount: number;
+  quantity?: number;
 }
 
 type ProductProps = {
