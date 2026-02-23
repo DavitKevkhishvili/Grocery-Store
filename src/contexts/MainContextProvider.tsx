@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MainContext } from "./MainContext";
-import type { CartItem } from "../types";
+import type { CartItem, ProductType } from "../types";
 
 const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -9,7 +9,11 @@ const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [showFilter, setShowFilter] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [cartContent, setCartContent] = useState<CartItem[]>([]);
+  const [category, setCategory] = useState("ყველა პროდუქტი");
+  const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
+  const [searchedProduct, setSearchedProduct] = useState("");
 
+  //Preventing scroll outside of the menu component when it is opened.
   useEffect(() => {
     if (toggleMenu) {
       document.body.classList.add("overflow-hidden");
@@ -31,10 +35,14 @@ const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
         setShowFilter,
         showCart,
         setShowCart,
-        // productQuantity,
-        // setProductQuantity,
         cartContent,
         setCartContent,
+        category,
+        setCategory,
+        filteredProducts,
+        setFilteredProducts,
+        searchedProduct,
+        setSearchedProduct,
       }}
     >
       {children}

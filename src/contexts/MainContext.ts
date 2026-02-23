@@ -10,4 +10,10 @@ export const MainContext = createContext<MainContextType>({
   setShowCart: () => {},
   cartContent: [],
   setCartContent: () => {},
+  category: "ყველა პროდუქტი",
+  setCategory: () => {},
+  filteredProducts: [],
+  setFilteredProducts: () => {},
+  searchedProduct: "",
+  setSearchedProduct: () => {},
 });
