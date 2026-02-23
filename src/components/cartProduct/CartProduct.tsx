@@ -69,7 +69,7 @@ const CartProduct: React.FC<CartProductProps> = ({ product }) => {
             <h5>{product.quantity}</h5>
             <span className="">x</span>
             <div className="flex text-green">
-              <h5>{product.price}</h5>
+              <h5>{product.price.toFixed(2)}</h5>
               <svg
                 className="mt-0.5 -ml-0.5"
                 xmlns="http://www.w3.org/2000/svg"
