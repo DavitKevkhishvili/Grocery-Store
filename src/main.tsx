@@ -8,7 +8,7 @@ import Registration from "./components/registration/Registration";
 import Recover from "./components/recover/Recover";
 import Profile from "./components/profile/Profile";
 import PersonalInfo from "./components/personalInfo/PersonalInfo";
-import MainContextProvider from "./contexts/MainContextProvider";
+import MainContextProvider from "./providers/MainContextProvider";
 
 const router = createBrowserRouter([
   {
