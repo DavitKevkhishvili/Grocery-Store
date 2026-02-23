@@ -1,19 +1,21 @@
 import { useContext, useEffect } from "react";
-import type { MainContextType } from "../../types";
-import { MainContext } from "../../contexts/MainContext";
+import type { FilterContextType, ProductContextType } from "../../types";
+import { ProductContext } from "../../contexts/ProductContext";
 import { categories } from "../../data/categories";
 import { products } from "../../data/productsData";
+import { FilterContext } from "../../contexts/FilterContext";
 
 const Filter: React.FC = () => {
+  const { setFilteredProducts } =
+    useContext<ProductContextType>(ProductContext);
   const {
     showFilter,
     setShowFilter,
     setCategory,
     category,
-    setFilteredProducts,
     searchedProduct,
     setSearchedProduct,
-  } = useContext<MainContextType>(MainContext);
+  } = useContext<FilterContextType>(FilterContext);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -29,8 +31,8 @@ const Filter: React.FC = () => {
     if (search) {
       filtered = products.filter(
         (p) =>
-          p.name.toLowerCase() === search.toLowerCase() ||
-          p.id.toLowerCase() === search.toLowerCase(),
+          p.name.toLowerCase() === search.toLowerCase().trim() ||
+          p.id.toLowerCase() === search.toLowerCase().trim(),
       );
       setSearchedProduct("");
     }
@@ -51,30 +53,25 @@ const Filter: React.FC = () => {
                   filter(category, searchedProduct);
                 }
               }}
-              className="w-full  h-12 border border-[#D1D5DB] text-black text-[16px] rounded-lg px-4 py-3 placeholder:opacity-50"
+              className="w-full h-12 border border-[#D1D5DB] text-black text-[16px] rounded-lg px-4 py-3 placeholder:opacity-50"
               type="text"
               placeholder="ძებნა"
             />
-            <button
-              onClick={() => filter(category, searchedProduct)}
-              className="cursor-pointer text-[#B2B2B2] hover:text-green"
+            <svg
+              className="w-4.5 h-4.5 absolute top-4 right-4 text-light-grey/40"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 16 16"
+              fill="none"
             >
-              <svg
-                className="w-6 h-6 absolute top-3 right-4 "
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M11.1111 9.77778H10.4L10.1333 9.51111C11.0222 8.53333 11.5556 7.2 11.5556 5.77778C11.5556 2.57778 8.97778 0 5.77778 0C2.57778 0 0 2.57778 0 5.77778C0 8.97778 2.57778 11.5556 5.77778 11.5556C7.2 11.5556 8.53333 11.0222 9.51111 10.1333L9.77778 10.4V11.1111L14.2222 15.5556L15.5556 14.2222L11.1111 9.77778ZM5.77778 9.77778C3.55556 9.77778 1.77778 8 1.77778 5.77778C1.77778 3.55556 3.55556 1.77778 5.77778 1.77778C8 1.77778 9.77778 3.55556 9.77778 5.77778C9.77778 8 8 9.77778 5.77778 9.77778Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M11.1111 9.77778H10.4L10.1333 9.51111C11.0222 8.53333 11.5556 7.2 11.5556 5.77778C11.5556 2.57778 8.97778 0 5.77778 0C2.57778 0 0 2.57778 0 5.77778C0 8.97778 2.57778 11.5556 5.77778 11.5556C7.2 11.5556 8.53333 11.0222 9.51111 10.1333L9.77778 10.4V11.1111L14.2222 15.5556L15.5556 14.2222L11.1111 9.77778ZM5.77778 9.77778C3.55556 9.77778 1.77778 8 1.77778 5.77778C1.77778 3.55556 3.55556 1.77778 5.77778 1.77778C8 1.77778 9.77778 3.55556 9.77778 5.77778C9.77778 8 8 9.77778 5.77778 9.77778Z"
+                fill="currentColor"
+              />
+            </svg>
           </div>
 
           <button
@@ -82,10 +79,10 @@ const Filter: React.FC = () => {
               e.stopPropagation();
               setShowFilter(!showFilter);
             }}
-            className="w-20 h-12 lg:w-30 text-dark text-[13px] font-normal lg:h-12 flex flex-col justify-center items-center rounded-lg gap-1 border border-[#D1D5DB] cursor-pointer hover:[box-shadow:0_0_10px_rgba(0,0,0,0.1)] hover:text-green hover:stroke-green"
+            className="w-20 h-12 lg:w-30 text-dark text-[10px] lg:text-[12px] font-normal lg:h-12 flex flex-col justify-center items-center rounded-lg gap-1 border border-[#D1D5DB] cursor-pointer hover:[box-shadow:0_0_10px_rgba(0,0,0,0.1)] hover:text-green hover:stroke-green"
           >
             <svg
-              className="w-4 h-4 lg:w-5 lg:h-5"
+              className="w-3 h-3"
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"

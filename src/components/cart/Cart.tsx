@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import CartProduct from "../cartProduct/CartProduct";
-import type { MainContextType } from "../../types";
-import { MainContext } from "../../contexts/MainContext";
+import type { CartContextType } from "../../types";
+import { CartContext } from "../../contexts/CartContext";
 
 const Cart: React.FC = () => {
-  const { cartContent } = useContext<MainContextType>(MainContext);
+  const { cartContent } = useContext<CartContextType>(CartContext);
   const [sum, setSum] = useState<number>(0);
 
   useEffect(() => {

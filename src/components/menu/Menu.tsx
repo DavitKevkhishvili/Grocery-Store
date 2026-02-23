@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import type { MainContextType } from "../../types";
-import { MainContext } from "../../contexts/MainContext";
+import type { MenuContextType } from "../../types";
+import { MenuContext } from "../../contexts/MenuContext";
 
 const Menu: React.FC = () => {
-  const { setToggleMenu } = useContext<MainContextType>(MainContext);
+  const { setToggleMenu } = useContext<MenuContextType>(MenuContext);
 
   return (
     <>

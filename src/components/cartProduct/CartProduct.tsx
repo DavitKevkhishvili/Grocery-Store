@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import type {
+  CartContextType,
   CartProductProps,
-  MainContextType,
   ProductType,
 } from "../../types";
-import { MainContext } from "../../contexts/MainContext";
+
+import { CartContext } from "../../contexts/CartContext";
 
 const CartProduct: React.FC<CartProductProps> = ({ product }) => {
-  const { setCartContent } = useContext<MainContextType>(MainContext);
+  const { setCartContent } = useContext<CartContextType>(CartContext);
 
   const increase = () => {
     setCartContent((prev) =>

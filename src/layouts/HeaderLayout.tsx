@@ -2,12 +2,13 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import { useContext } from "react";
-import type { MainContextType } from "../types";
-import { MainContext } from "../contexts/MainContext";
+import type { FilterContextType, CartContextType } from "../types";
+import { CartContext } from "../contexts/CartContext";
+import { FilterContext } from "../contexts/FilterContext";
 
 const HeaderLayout: React.FC = () => {
-  const { setShowCart, setShowFilter } =
-    useContext<MainContextType>(MainContext);
+  const { setShowCart } = useContext<CartContextType>(CartContext);
+  const { setShowFilter } = useContext<FilterContextType>(FilterContext);
   return (
     <div className="min-h-screen flex flex-col">
       <header

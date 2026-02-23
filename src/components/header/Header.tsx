@@ -1,14 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import Menu from "../menu/Menu";
 import { useContext } from "react";
-import type { MainContextType } from "../../types";
-import { MainContext } from "../../contexts/MainContext";
+import type { CartContextType, MenuContextType } from "../../types";
+
 import Cart from "../cart/Cart";
+import { CartContext } from "../../contexts/CartContext";
+import { MenuContext } from "../../contexts/MenuContext";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const { toggleMenu, setToggleMenu, showCart, setShowCart } =
-    useContext<MainContextType>(MainContext);
+  const { toggleMenu, setToggleMenu } =
+    useContext<MenuContextType>(MenuContext);
+  const { showCart, setShowCart, cartContent } =
+    useContext<CartContextType>(CartContext);
 
   return (
     <>
@@ -69,7 +73,7 @@ const Header: React.FC = () => {
                 e.stopPropagation();
                 setShowCart(!showCart);
               }}
-              className="cursor-pointer hover:text-green"
+              className="cursor-pointer hover:text-green relative"
             >
               <svg
                 className="w-5 h-5 lg:w-7 lg:h-7"
@@ -101,6 +105,16 @@ const Header: React.FC = () => {
                   strokeLinejoin="round"
                 />
               </svg>
+              {cartContent.length > 0 ? (
+                <div className="w-4 h-3 lg:w-5 lg:h-4 bg-green rounded-lg absolute -top-0.5 left-3 lg:left-4 text-white text-[8px] lg:text-[10px] font-normal flex justify-center items-center">
+                  {cartContent.reduce(
+                    (acc, product) => acc + product.quantity,
+                    0,
+                  )}
+                </div>
+              ) : (
+                <div></div>
+              )}
             </button>
 
             <button

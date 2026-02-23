@@ -1,11 +1,11 @@
 import SearchBar from "../components/searchBar/SearchBar";
 import Product from "../components/product/Product";
 import { useContext } from "react";
-import type { MainContextType } from "../types";
-import { MainContext } from "../contexts/MainContext";
+import type { ProductContextType } from "../types";
+import { ProductContext } from "../contexts/ProductContext";
 
 const Home: React.FC = () => {
-  const { filteredProducts } = useContext<MainContextType>(MainContext);
+  const { filteredProducts } = useContext<ProductContextType>(ProductContext);
 
   return (
     <>
