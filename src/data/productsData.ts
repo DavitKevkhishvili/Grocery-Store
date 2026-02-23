@@ -1,0 +1,68 @@
+import type { ProductType } from "../types";
+
+export const products: ProductType[] = [
+  {
+    id: "vashli",
+    name: "ვაშლი",
+    price: 4.5,
+    unit: "კგ",
+    category: "ხილი",
+    defaultAmount: 1,
+  },
+  {
+    id: "kombosto",
+    name: "კომბოსტო",
+    price: 3.8,
+    unit: "კგ",
+    category: "ბოსტნეული",
+    defaultAmount: 1,
+  },
+  {
+    id: "brinji",
+    name: "ბრინჯი",
+    price: 2.2,
+    unit: "კგ",
+    category: "ბურღულეული",
+    defaultAmount: 1,
+  },
+  {
+    id: "rdze",
+    name: "რძე",
+    price: 2.5,
+    unit: "ლ",
+    category: "რძის პროდუქტი",
+    defaultAmount: 1,
+  },
+  {
+    id: "zeitunis zeti",
+    name: "ზეითუნის ზეთი",
+    price: 8.9,
+    unit: "მლ",
+    category: "ზეთი",
+    defaultAmount: 500,
+  },
+  {
+    id: "iogurti",
+    name: "იოგურტი",
+    price: 1.2,
+    unit: "გ",
+    category: "რძის პროდუქტი",
+    defaultAmount: 400,
+  },
+  {
+    id: "qatmis file",
+    name: "ქათმის ფილე",
+    price: 12.5,
+    unit: "კგ",
+    category: "ხორცი",
+    defaultAmount: 1,
+  },
+  {
+    id: "kvercxi",
+    name: "კვერცხი",
+    price: 6,
+    unit: "ც",
+    category: "კვერცხი",
+    defaultAmount: 12,
+  },
+];
