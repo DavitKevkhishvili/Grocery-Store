@@ -4,21 +4,30 @@ type MenuProps = {
   setToggleMenu: React.Dispatch<SetStateAction<boolean>>;
 };
 
-type MainContextType = {
-  toggleMenu: boolean;
-  setToggleMenu: React.Dispatch<SetStateAction<boolean>>;
+type FilterContextType = {
   showFilter: boolean;
   setShowFilter: React.Dispatch<SetStateAction<boolean>>;
+  category: string;
+  setCategory: React.Dispatch<SetStateAction<string>>;
+  searchedProduct: string;
+  setSearchedProduct: React.Dispatch<SetStateAction<string>>;
+};
+
+type CartContextType = {
   showCart: boolean;
   setShowCart: React.Dispatch<SetStateAction<boolean>>;
   cartContent: ProductType[];
   setCartContent: React.Dispatch<SetStateAction<CartItem[]>>;
-  category: string;
-  setCategory: React.Dispatch<SetStateAction<string>>;
+};
+
+type ProductContextType = {
   filteredProducts: ProductType[];
   setFilteredProducts: React.Dispatch<SetStateAction<ProductType[]>>;
-  searchedProduct: string;
-  setSearchedProduct: React.Dispatch<SetStateAction<string>>;
+};
+
+type MenuContextType = {
+  toggleMenu: boolean;
+  setToggleMenu: React.Dispatch<SetStateAction<boolean>>;
 };
 
 interface ProductType {
