@@ -29,7 +29,6 @@ interface ProductType {
   unit: "კგ" | "გ" | "ლ" | "მლ" | "ც" | "მგ";
   category: string;
   defaultAmount: number;
-  quantity: number;
 }
 
 type ProductProps = {
