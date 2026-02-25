@@ -3,6 +3,7 @@ import Menu from "../menu/Menu";
 import { useContext } from "react";
 import type {
   CartContextType,
+  FilterContextType,
   MenuContextType,
   ProductContextType,
 } from "../../types";
@@ -11,6 +12,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { MenuContext } from "../../contexts/MenuContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import { products } from "../../data/productsData";
+import { FilterContext } from "../../contexts/FilterContext";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ const Header: React.FC = () => {
     useContext<CartContextType>(CartContext);
   const { setFilteredProducts } =
     useContext<ProductContextType>(ProductContext);
+  const { setSearchedProduct } = useContext<FilterContextType>(FilterContext);
 
   return (
     <>
@@ -31,6 +34,7 @@ const Header: React.FC = () => {
               onClick={() => {
                 navigate("/Home");
                 setFilteredProducts(products);
+                setSearchedProduct("");
               }}
             >
               <img
