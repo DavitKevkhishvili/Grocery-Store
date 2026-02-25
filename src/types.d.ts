@@ -12,6 +12,7 @@ type FilterContextType = {
   searchedProduct: string;
   setSearchedProduct: React.Dispatch<SetStateAction<string>>;
   filter: (cat: string, search?: string) => void;
+  debouncedFilter: (cat: any, value: any) => void;
 };
 
 type CartContextType = {

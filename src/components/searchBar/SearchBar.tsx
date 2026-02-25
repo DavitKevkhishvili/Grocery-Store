@@ -12,6 +12,7 @@ const Filter: React.FC = () => {
     searchedProduct,
     setSearchedProduct,
     filter,
+    debouncedFilter,
   } = useContext<FilterContextType>(FilterContext);
 
   return (
@@ -21,11 +22,9 @@ const Filter: React.FC = () => {
           <div className="relative flex-1">
             <input
               value={searchedProduct}
-              onChange={(e) => setSearchedProduct(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  filter(category, searchedProduct);
-                }
+              onChange={(e) => {
+                setSearchedProduct(e.target.value);
+                debouncedFilter(category, e.target.value);
               }}
               className="w-full h-12 border border-[#D1D5DB] text-black text-[16px] rounded-lg px-4 py-3 placeholder:opacity-50"
               type="text"
