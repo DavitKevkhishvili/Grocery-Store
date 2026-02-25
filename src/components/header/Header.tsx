@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Menu from "../menu/Menu";
 import { useContext } from "react";
-import type { CartContextType, MenuContextType } from "../../types";
+import type {
+  CartContextType,
+  MenuContextType,
+  ProductContextType,
+} from "../../types";
 import Cart from "../cart/Cart";
 import { CartContext } from "../../contexts/CartContext";
 import { MenuContext } from "../../contexts/MenuContext";
+import { ProductContext } from "../../contexts/ProductContext";
+import { products } from "../../data/productsData";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +18,8 @@ const Header: React.FC = () => {
     useContext<MenuContextType>(MenuContext);
   const { showCart, setShowCart, cartContent } =
     useContext<CartContextType>(CartContext);
+  const { setFilteredProducts } =
+    useContext<ProductContextType>(ProductContext);
 
   return (
     <>
@@ -20,7 +28,10 @@ const Header: React.FC = () => {
           <div className="w-14 h-full flex justify-center items-center gap-2 lg:w-29 ">
             <button
               className="cursor-pointer"
-              onClick={() => navigate("/Home")}
+              onClick={() => {
+                navigate("/Home");
+                setFilteredProducts(products);
+              }}
             >
               <img
                 className="w-8 h-8 lg:w-16 lg:h-16"
