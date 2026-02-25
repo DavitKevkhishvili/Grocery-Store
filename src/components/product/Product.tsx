@@ -1,32 +1,10 @@
 import { useContext, useState } from "react";
-import type { CartContextType, ProductProps, ProductType } from "../../types";
-
-import { CartContext } from "../../contexts/CartContext";
+import type { ProductContextType, ProductProps } from "../../types";
+import { ProductContext } from "../../contexts/ProductContext";
 
 const Product: React.FC<ProductProps> = ({ product }) => {
-  const { cartContent, setCartContent } =
-    useContext<CartContextType>(CartContext);
+  const { addInCart } = useContext<ProductContextType>(ProductContext);
   const [productQuantity, setProductQuantity] = useState(1);
-
-  const addInCart = (prod: ProductType) => {
-    const existing = cartContent.find((p) => p.id === prod.id);
-    if (existing) {
-      setCartContent((prev) =>
-        prev.map((p) =>
-          p.id === prod.id
-            ? { ...p, quantity: p.quantity + productQuantity }
-            : p,
-        ),
-      );
-      setProductQuantity(1);
-    } else {
-      setCartContent((prev) => [
-        ...prev,
-        { ...prod, quantity: productQuantity },
-      ]);
-      setProductQuantity(1);
-    }
-  };
 
   return (
     <>
@@ -96,7 +74,10 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             </div>
 
             <button
-              onClick={() => addInCart(product)}
+              onClick={() => {
+                addInCart(product, productQuantity);
+                setProductQuantity(1);
+              }}
               className="w-30 h-10 text-white text-[13px] font-nromal bg-green rounded-lg px-4 py-2 flex justify-between items-center cursor-pointer hover:[box-shadow:0_0_15px_rgba(22,163,74,0.3)]"
             >
               <svg

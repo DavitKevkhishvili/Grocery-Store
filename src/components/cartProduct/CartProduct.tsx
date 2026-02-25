@@ -1,39 +1,10 @@
 import { useContext } from "react";
-import type {
-  CartContextType,
-  CartProductProps,
-  ProductType,
-} from "../../types";
-
+import type { CartContextType, CartProductProps } from "../../types";
 import { CartContext } from "../../contexts/CartContext";
 
 const CartProduct: React.FC<CartProductProps> = ({ product }) => {
-  const { setCartContent } = useContext<CartContextType>(CartContext);
-
-  const increase = () => {
-    setCartContent((prev) =>
-      prev.map((p) =>
-        p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p,
-      ),
-    );
-  };
-
-  const decrease = () => {
-    setCartContent((prev) =>
-      prev.map((p) => {
-        if (p.id === product.id) {
-          if (p.quantity > 1) {
-            return { ...p, quantity: p.quantity - 1 };
-          }
-        }
-        return p;
-      }),
-    );
-  };
-
-  const deleteFromCart = (prod: ProductType) => {
-    setCartContent((prev) => prev.filter((p) => p.id !== prod.id));
-  };
+  const { increase, decrease, deleteFromCart } =
+    useContext<CartContextType>(CartContext);
 
   return (
     <>
@@ -50,7 +21,7 @@ const CartProduct: React.FC<CartProductProps> = ({ product }) => {
 
           <div className="w-18 h-7.5 text-light-grey text-[13px] mb-1">
             <button
-              onClick={decrease}
+              onClick={() => decrease(product.id)}
               className="w-6 h-full border border-light-grey/30 rounded-l-lg hover:bg-green hover:text-white cursor-pointer"
             >
               -
@@ -59,7 +30,7 @@ const CartProduct: React.FC<CartProductProps> = ({ product }) => {
               {product.quantity}
             </button>
             <button
-              onClick={increase}
+              onClick={() => increase(product.id)}
               className="w-6 h-full border border-light-grey/30 rounded-r-lg hover:bg-green hover:text-white cursor-pointer"
             >
               +
@@ -92,7 +63,7 @@ const CartProduct: React.FC<CartProductProps> = ({ product }) => {
           </div>
         </div>
 
-        <button onClick={() => deleteFromCart(product)}>
+        <button onClick={() => deleteFromCart(product.id)}>
           <svg
             className="cursor-pointer hover:text-red"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,17 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import CartProduct from "../cartProduct/CartProduct";
 import type { CartContextType } from "../../types";
 import { CartContext } from "../../contexts/CartContext";
 
 const Cart: React.FC = () => {
-  const { cartContent } = useContext<CartContextType>(CartContext);
-  const [sum, setSum] = useState<number>(0);
-
-  useEffect(() => {
-    return setSum(
-      cartContent.reduce((acc, item) => acc + item.price * item.quantity, 0),
-    );
-  }, [cartContent]);
+  const { cartContent, sum } = useContext<CartContextType>(CartContext);
 
   return (
     <>

@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import Menu from "../menu/Menu";
 import { useContext } from "react";
 import type { CartContextType, MenuContextType } from "../../types";
-
 import Cart from "../cart/Cart";
 import { CartContext } from "../../contexts/CartContext";
 import { MenuContext } from "../../contexts/MenuContext";

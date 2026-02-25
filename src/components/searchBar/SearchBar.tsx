@@ -1,13 +1,9 @@
-import { useContext, useEffect } from "react";
-import type { FilterContextType, ProductContextType } from "../../types";
-import { ProductContext } from "../../contexts/ProductContext";
+import { useContext } from "react";
+import type { FilterContextType } from "../../types";
 import { categories } from "../../data/categories";
-import { products } from "../../data/productsData";
 import { FilterContext } from "../../contexts/FilterContext";
 
 const Filter: React.FC = () => {
-  const { setFilteredProducts } =
-    useContext<ProductContextType>(ProductContext);
   const {
     showFilter,
     setShowFilter,
@@ -15,30 +11,8 @@ const Filter: React.FC = () => {
     category,
     searchedProduct,
     setSearchedProduct,
+    filter,
   } = useContext<FilterContextType>(FilterContext);
-
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, []);
-
-  const filter = (cat: string, search?: string) => {
-    let filtered = products;
-
-    if (cat !== "ყველა პროდუქტი") {
-      filtered = filtered.filter((p) => p.category === cat);
-    }
-
-    if (search) {
-      filtered = products.filter(
-        (p) =>
-          p.name.toLowerCase() === search.toLowerCase().trim() ||
-          p.id.toLowerCase() === search.toLowerCase().trim(),
-      );
-      setSearchedProduct("");
-    }
-
-    setFilteredProducts(filtered);
-  };
 
   return (
     <>
