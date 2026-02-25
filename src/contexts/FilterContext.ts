@@ -8,4 +8,5 @@ export const FilterContext = createContext<FilterContextType>({
   setCategory: () => {},
   searchedProduct: "",
   setSearchedProduct: () => {},
+  filter: () => {},
 });

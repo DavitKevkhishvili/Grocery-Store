@@ -7,13 +7,13 @@ const MainContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <FilterContextProvider>
-      <CartContextProvider>
-        <ProductContextProvider>
+    <CartContextProvider>
+      <ProductContextProvider>
+        <FilterContextProvider>
           <MenuContextProvider>{children}</MenuContextProvider>
-        </ProductContextProvider>
-      </CartContextProvider>
-    </FilterContextProvider>
+        </FilterContextProvider>
+      </ProductContextProvider>
+    </CartContextProvider>
   );
 };
 

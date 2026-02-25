@@ -11,6 +11,7 @@ type FilterContextType = {
   setCategory: React.Dispatch<SetStateAction<string>>;
   searchedProduct: string;
   setSearchedProduct: React.Dispatch<SetStateAction<string>>;
+  filter: (cat: string, search?: string) => void;
 };
 
 type CartContextType = {
@@ -18,11 +19,17 @@ type CartContextType = {
   setShowCart: React.Dispatch<SetStateAction<boolean>>;
   cartContent: ProductType[];
   setCartContent: React.Dispatch<SetStateAction<CartItem[]>>;
+  increase: (productId: string) => void;
+  decrease: (productId: string) => void;
+  deleteFromCart: (productId: string) => void;
+  sum: number;
+  setSum: React.Dispatch<SetStateAction<number>>;
 };
 
 type ProductContextType = {
   filteredProducts: ProductType[];
   setFilteredProducts: React.Dispatch<SetStateAction<ProductType[]>>;
+  addInCart: (product: ProductType, productQuantity: number) => void;
 };
 
 type MenuContextType = {
