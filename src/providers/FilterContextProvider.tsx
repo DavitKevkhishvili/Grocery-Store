@@ -11,21 +11,16 @@ const FilterContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [showFilter, setShowFilter] = useState(false);
   const [category, setCategory] = useState("ყველა პროდუქტი");
   const [searchedProduct, setSearchedProduct] = useState("");
-  const { filteredProducts, setFilteredProducts } =
+  const { setFilteredProducts } =
     useContext<ProductContextType>(ProductContext);
 
   useEffect(() => {
     setFilteredProducts(products);
   }, []);
 
-  const filter = useCallback(
-    (cat: string, search?: string) => {
+  const searchFilter = useCallback(
+    (search: string) => {
       let filtered = products;
-
-      if (cat !== "ყველა პროდუქტი") {
-        filtered = products.filter((p) => p.category === cat);
-      }
-
       if (search) {
         filtered = products.filter(
           (p) =>
@@ -36,15 +31,28 @@ const FilterContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
       setFilteredProducts(filtered);
     },
-    [filteredProducts],
+    [products],
+  );
+
+  const categoryFilter = useCallback(
+    (cat: string) => {
+      let filtered = products;
+
+      if (cat !== "ყველა პროდუქტი") {
+        filtered = products.filter((p) => p.category === cat);
+      }
+      setFilteredProducts(filtered);
+      setSearchedProduct("");
+    },
+    [products],
   );
 
   const debouncedFilter = useMemo(
     () =>
-      debounce((cat, value) => {
-        filter(cat, value);
+      debounce((value) => {
+        searchFilter(value);
       }, 500),
-    [filter],
+    [searchFilter],
   );
 
   useEffect(() => {
@@ -62,7 +70,8 @@ const FilterContextProvider: React.FC<{ children: React.ReactNode }> = ({
         setCategory,
         searchedProduct,
         setSearchedProduct,
-        filter,
+        searchFilter,
+        categoryFilter,
         debouncedFilter,
       }}
     >

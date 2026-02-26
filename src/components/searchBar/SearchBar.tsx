@@ -8,10 +8,9 @@ const Filter: React.FC = () => {
     showFilter,
     setShowFilter,
     setCategory,
-    category,
     searchedProduct,
     setSearchedProduct,
-    filter,
+    categoryFilter,
     debouncedFilter,
   } = useContext<FilterContextType>(FilterContext);
 
@@ -24,7 +23,7 @@ const Filter: React.FC = () => {
               value={searchedProduct}
               onChange={(e) => {
                 setSearchedProduct(e.target.value);
-                debouncedFilter(category, e.target.value);
+                debouncedFilter(e.target.value);
               }}
               className="w-full h-12 border border-[#D1D5DB] text-black text-[16px] rounded-lg px-4 py-3 placeholder:opacity-50"
               type="text"
@@ -90,7 +89,7 @@ const Filter: React.FC = () => {
                   onClick={() => {
                     setCategory(cat);
                     setShowFilter(false);
-                    filter(cat, searchedProduct);
+                    categoryFilter(cat);
                   }}
                   key={cat}
                   className="w-full h-12 px-6 flex justify-start items-center cursor-pointer text-[16px] text-dark font-normal hover:text-green "
