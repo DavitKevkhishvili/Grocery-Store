@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import type { FilterContextType } from "../../types";
+import type { FilterContextType } from "../../types/publicTypes";
 import { categories } from "../../data/categories";
 import { FilterContext } from "../../contexts/FilterContext";
 

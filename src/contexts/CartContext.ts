@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { CartContextType } from "../types";
+import type { CartContextType } from "../types/publicTypes";
 
 export const CartContext = createContext<CartContextType>({
   showCart: false,

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import type { ProductContextType, ProductProps } from "../../types";
+import type { ProductContextType, ProductProps } from "../../types/publicTypes";
 import { ProductContext } from "../../contexts/ProductContext";
 
 const Product: React.FC<ProductProps> = ({ product }) => {

@@ -1,7 +1,7 @@
 import SearchBar from "../components/searchBar/SearchBar";
 import Product from "../components/product/Product";
 import { useContext } from "react";
-import type { ProductContextType } from "../types";
+import type { ProductContextType } from "../types/publicTypes";
 import { ProductContext } from "../contexts/ProductContext";
 
 const Home: React.FC = () => {

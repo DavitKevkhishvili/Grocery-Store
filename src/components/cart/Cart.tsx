@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import CartProduct from "../cartProduct/CartProduct";
-import type { CartContextType } from "../../types";
+import type { CartContextType } from "../../types/publicTypes";
 import { CartContext } from "../../contexts/CartContext";
 
 const Cart: React.FC = () => {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import type { MenuContextType } from "../../types";
+import type { MenuContextType } from "../../types/publicTypes";
 import { MenuContext } from "../../contexts/MenuContext";
 
 const Menu: React.FC = () => {

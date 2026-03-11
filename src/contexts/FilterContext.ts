@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { FilterContextType } from "../types";
+import type { FilterContextType } from "../types/publicTypes";
 
 export const FilterContext = createContext<FilterContextType>({
   showFilter: false,

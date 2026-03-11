@@ -6,7 +6,7 @@ import type {
   FilterContextType,
   MenuContextType,
   ProductContextType,
-} from "../../types";
+} from "../../types/publicTypes";
 import Cart from "../cart/Cart";
 import { CartContext } from "../../contexts/CartContext";
 import { MenuContext } from "../../contexts/MenuContext";

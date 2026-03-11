@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { FilterContext } from "../contexts/FilterContext";
 import { products } from "../data/productsData";
-import type { ProductContextType } from "../types";
+import type { ProductContextType } from "../types/publicTypes";
 import { ProductContext } from "../contexts/ProductContext";
 import debounce from "lodash.debounce";
 

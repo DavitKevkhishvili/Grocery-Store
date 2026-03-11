@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
-import type { CartItem } from "../types";
+import type { CartItem } from "../types/publicTypes";
 
 const CartContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
