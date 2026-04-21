@@ -11,7 +11,7 @@ type OrderType = {
   address: string;
   products: ItemType[];
   total: number;
-  time: string;
+  date: string;
   status: string;
 };
 
