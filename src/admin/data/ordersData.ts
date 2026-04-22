@@ -1,4 +1,4 @@
-export const orders: OrderType[] = [
+export const ordersData: OrderType[] = [
   {
     id: "ORD-001",
     customer: "Anna Johnson",

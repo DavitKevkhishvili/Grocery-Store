@@ -33,3 +33,22 @@ type StatType = {
   label: string;
   value: number;
 };
+
+type DashboardStatPropsType = {
+  stat: StatType;
+};
+
+type DashboardOrderPropsType = {
+  order: OrderType;
+};
+
+type OrderPropsType = {
+  order: OrderType;
+  setSelectedOrder: React.Dispatch<React.SetStateAction<OrderType | null>>;
+};
+
+type OrderDetailsProps = {
+  order: OrderType;
+  onClose: () => void;
+  onStatusChange: (status: StatusType) => void;
+};

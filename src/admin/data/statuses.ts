@@ -1,4 +1,5 @@
 export const statuses: string[] = [
+  "ყველა",
   "ახალი",
   "მიღებული",
   "მზადდება",
